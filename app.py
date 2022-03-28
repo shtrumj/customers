@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-from flask_sqlalchemy import SQLAlchemy
+from  flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
@@ -31,8 +31,6 @@ class LoginForm(FlaskForm):
     password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "ססמא"})
     submit = SubmitField("התחבר")
 
-
-
 @app.route('/')
 @app.route('/login', methods=['GET','POST'])
 def login():
@@ -49,4 +47,4 @@ def about():
 def customers():
     return render_template('customers.html',title="Customers")
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port='80')
