@@ -16,9 +16,9 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(80), nullable=False)
 
 class RegisterForm(FlaskForm):
-    username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placehoder": "Username"})
-    password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Password"})
-    submit = SubmitField("Register")
+    username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder" : "שם משתמש"})
+    password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "סיסמא"})
+    submit = SubmitField("הירשם")
 
     def validate_username(self, username):
         existing_user_username = User.query.filter_by(
@@ -27,9 +27,9 @@ class RegisterForm(FlaskForm):
             raise ValidationError(
                 "That username already exists. Please choose a different one.")
 class LoginForm(FlaskForm):
-    username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placehoder": "Username"})
-    password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Password"})
-    submit = SubmitField("Login")
+    username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "שם משתמש"})
+    password = PasswordField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "ססמא"})
+    submit = SubmitField("התחבר")
 
 
 
