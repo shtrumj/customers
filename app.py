@@ -28,4 +28,4 @@ def about():
 def customers():
     return render_template('customers.html',title="Customers")
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
