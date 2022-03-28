@@ -2,5 +2,13 @@
 
 {%  block content %}
 <h1 style="text-align: center;">רישום למערכת</h1>
+<form method="POST" action="">
+{{  form.hidden_tag() }}
+{{  form.username }}
+</br>
+{{  form.password }}
+    </br></br>
 
+{{  form.submit }}
+</form>
 {%  endblock %}
