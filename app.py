@@ -34,10 +34,10 @@ class LoginForm(FlaskForm):
 
 
 @app.route('/')
-@app.route('/login')
+@app.route('/login', methods=['GET','POST'])
 def index():
     return render_template('login.html', title='Login')
-@app.route('/signin')
+@app.route('/register',methods=['GET','POST'])
 def signin():
     return render_template('signin.html', title='Signin')
 @app.route('/about')
