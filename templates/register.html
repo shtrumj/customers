@@ -5,10 +5,11 @@
 <form method="POST" action="">
 {{  form.hidden_tag() }}
 {{  form.username }}
-</br>
+    </br></br>
 {{  form.password }}
     </br></br>
 
 {{  form.submit }}
 </form>
+    <a dir="rtl" href={{ url_for('login')}}>יש חשבון ? היכנסו פה.</a>
 {%  endblock %}

@@ -4,9 +4,10 @@ from flask_login import LoginManager, UserMixin
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import InputRequired, Length, ValidationError
-
+from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY']= 'M&D5rk)J^h%tPJ8T'
 
@@ -37,7 +38,7 @@ def login():
     form = LoginForm()
     return render_template('login.html', title='Login', form=form)
 @app.route('/register',methods=['GET','POST'])
-def signin():
+def register():
     form=RegisterForm()
     return render_template('register.html', title='Login', form=form)
 @app.route('/about')
