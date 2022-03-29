@@ -4,9 +4,11 @@
 <h1 style="text-align: center;"> התחברות למערכת</h1>
 <form method="POST" action="">
 {{  form.hidden_tag() }}
-{{  form.username }}
 </br>
+{{  form.username }}
+    </br></br>
 {{  form.password }}
     </br></br>
+<a dir="ltr" href={{ url_for('signin')}}>Dont have an account?</a>
 </form>
 {%  endblock %}
