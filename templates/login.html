@@ -1,14 +1,12 @@
 {%  extends 'base.html' %}
 
 {%  block content %}
-<h1 style="text-align: center;">כניסה למערכת</h1>
+<h1 style="text-align: center;"> התחברות למערכת</h1>
 <form method="POST" action="">
 {{  form.hidden_tag() }}
 {{  form.username }}
 </br>
 {{  form.password }}
     </br></br>
-
-{{  form.submit }}
 </form>
 {%  endblock %}

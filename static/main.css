@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.bg-light {
+    border-top: 1px solid #00a651;
+    margin-top: 0px;
+    padding-top: 7px;
+    color: #00a651;
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+}
