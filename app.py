@@ -47,7 +47,7 @@ class LoginForm(FlaskForm):
 @app.route('/')
 @app.route('/login', methods=['GET','POST'])
 def login():
-    form = LoginForm()
+    Lform = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
@@ -55,16 +55,22 @@ def login():
                 login_user(user)
                 return redirect(url_for('dashboard'))
 
-    return render_template('login.html', title='Login', form=form)
+    return render_template('login.html', title='Login', form=Lform)
 
 @app.route('/dashboard', methods=['GET','POST'])
 @login_required
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/logout', methods=['GET','POST'])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+
 @app.route('/register',methods=['GET','POST'])
 def register():
-    form=RegisterForm()
+    Rform=RegisterForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data)
         new_user = User(username=form.username.data, password=hashed_password)
@@ -72,7 +78,7 @@ def register():
         db.session.commit()
         return redirect(url_for('login'))
 
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Register', form=Rform)
 
 @app.route('/about')
 def about():
@@ -83,3 +89,8 @@ def customers():
     return render_template('customers.html',title="Customers")
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port='80')
+
+
+@app.route('/employee')
+def employee():
+    return render_template('employee.html')

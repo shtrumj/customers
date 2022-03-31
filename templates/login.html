@@ -2,13 +2,22 @@
 
 {%  block content %}
 <h1 style="text-align: center;"> התחברות למערכת</h1>
+ <div class="border border-primary>
 <form method="POST" action="">
 {{  form.hidden_tag() }}
-</br>
+    <br></br>
 {{  form.username }}
-    </br></br>
+    <br></br>
 {{  form.password }}
-    </br></br>
+    <br></br>
+    {{  form.submit(class="btn btn-outline-success") }}
+    <br></br>
 <a dir="rtl" href={{ url_for('register')}}>אין חשבון ? הירשמו פה.</a>
+    <br></br>
+</div>
+<style>
+    .btn-outline-success { background: rgba(42,207,144,0.2)};
+    .border .border-primary {padding-right: 2}  ;
+</style>
 </form>
 {%  endblock %}
